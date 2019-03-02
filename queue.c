@@ -75,8 +75,8 @@ bool q_insert_head(queue_t *q, char *s)
     memset(ptr, 0, len);
     strncpy(ptr, s, len - 1);
     newh->value = ptr;
+    newh->next = q->head;
     if (q->head) {
-        newh->next = q->head;
         q->head = newh;
     } else {
         q->head = q->tail = newh;
