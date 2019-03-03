@@ -141,9 +141,9 @@ bool q_remove_head(queue_t *q, char *sp, size_t bufsize)
         memset(sp, '\0', bufsize);
         strncpy(sp, tmp->value, bufsize - 1);
     }
+    q->head = q->head->next;
     free(tmp->value);
     free(tmp);
-    q->head = q->head->next;
     q->size--;
     return true;
 }
